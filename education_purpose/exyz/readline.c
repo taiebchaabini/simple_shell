@@ -7,13 +7,15 @@ int main()
 	size_t buffer;
 
 	printf("$ ");
-	string = malloc(sizeof(char) * size + 1);
-	buffer = getline(&string, &size, stdin);
-	if (buffer == -1)
-		puts("error");
-	else
+	string = malloc(sizeof(size_t) * size + 1);
+	if (string == NULL)
+		exit(-1);
+	while((buffer = getline(&string, &size, stdin)) != -1)
 	{
 		printf("%s", string);
-		return (0);
+		shsing //in place of printf and shows $ sign
 	}
+	free(buffer); //free 
+
+	exit(EXIT_SUCCESS);
 }
