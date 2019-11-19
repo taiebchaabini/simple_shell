@@ -21,11 +21,11 @@ int main(int ac, char **av)
 	buffer = getline(&string, &buffer_size, stdin);
 	if (buffer == -1)
 		exit(97);
-	parts = strtok(string, " ");
+	parts = strtok(string, " \n");
 	while (parts != NULL)
 	{
 		printf("%s\n", parts);
-		parts = strtok(NULL, " ");
+		parts = strtok(NULL, " \n");
 	}
 	free(string);
 	exit(EXIT_SUCCESS);
