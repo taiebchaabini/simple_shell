@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <unistd.h>
+/**
+  works just fine just if you want to run any process you need to type its directory and add options like example in the arguments section very cool hein
+ */
+int main(int argc, char *argv[])
+{   
+	char *argvv[];
+	argvv[] = argv[];
+	execve(argvv[1], argvv, NULL);
+		    printf("try again");
+		    return (0); 
+}

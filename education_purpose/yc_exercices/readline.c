@@ -6,16 +6,16 @@ int main()
 	size_t size = 64;
 	size_t buffer;
 
-	printf("$ ");
 	string = malloc(sizeof(size_t) * size + 1);
 	if (string == NULL)
-		exit(-1);
+		exit(EXIT_FAILURE);
+	printf("$ ");
 	while((buffer = getline(&string, &size, stdin)) != -1)
 	{
 		printf("%s", string);
-		shsing //in place of printf and shows $ sign
+		printf("$ ");
 	}
-	free(buffer); //free 
+	free(string); //free 
 
 	exit(EXIT_SUCCESS);
 }
