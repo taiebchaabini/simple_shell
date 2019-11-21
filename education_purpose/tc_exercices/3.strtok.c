@@ -5,11 +5,14 @@
 * @av: arguments passed to the program
 * Return (EXIT_SUCCESS) if success otherwise -1
 **/
-int main(int ac, char **av)
+int main(void)
 {
 	size_t len = 0;
 	ssize_t read;
 	char *buf = NULL;
+	char *strtmp = NULL;
+	char *token = NULL;
+	char *delim = " ";
 
 	buf = malloc(sizeof(size_t));
 	if (buf == NULL)
@@ -18,7 +21,17 @@ int main(int ac, char **av)
 	shsign
 	while ((read = getline(&buf, &len, stdin)) != -1)
 	{
-		printf("%s", strtok(buf, ","));
+		strtmp = malloc(sizeof(char) * strlen(buf));
+		if (strtmp == NULL)
+			return (-1);
+		strtmp = strcpy(strtmp, buf);
+		token = strtok(strtmp, delim);
+		while (token != NULL)
+		{
+			printf("%s\n", token);
+			token = strtok(NULL, delim);
+		}
+		break;
 		shsign
 	}
 	free(buf);
