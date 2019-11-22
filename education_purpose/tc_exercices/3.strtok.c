@@ -12,7 +12,7 @@ int main(void)
 	char *buf = NULL;
 	char *strtmp = NULL;
 	char *token = NULL;
-	char *delim = " ";
+	char *delim = " \n";
 
 	buf = malloc(sizeof(size_t));
 	if (buf == NULL)
