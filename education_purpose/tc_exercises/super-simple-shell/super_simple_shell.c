@@ -15,11 +15,11 @@ int main(void)
 	shsign
 	while ((read = getline(&line, &len, stdin)) != -1)
 	{
-		str = malloc(sizeof(char) * strlen(line));
+		str = malloc(sizeof(char) * _strlen(line));
 		if (str == NULL)
 			exit(-1);
 		*argv = NULL;
-		*argv = malloc(sizeof(char) * strlen(line));
+		*argv = malloc(sizeof(char) * _strlen(line));
 		if (argv == NULL)
 			exit(-1);
 		str = strcpy(str, line);
@@ -27,7 +27,7 @@ int main(void)
 		i = 0;
 		while (token != NULL)
 		{
-			argv[i] = malloc(sizeof(char) * strlen(token));
+			argv[i] = malloc(sizeof(char) * _strlen(token));
 			if(argv[i] == NULL)
 				exit(-1);
 			argv[i] = token;
