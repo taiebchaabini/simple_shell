@@ -15,6 +15,7 @@ int main(void)
 	shsign
 	while ((read = getline(&line, &len, stdin)) != -1)
 	{
+		children_pid = fork();
 		str = malloc(sizeof(char) * strlen(line));
 		if (str == NULL)
 			exit(-1);
@@ -33,8 +34,12 @@ int main(void)
 			i++;
 		}
 		argv[i] = NULL;
-		execve("/bin/ls", argv, NULL);
-		shsign
+		if (children_pid == 0)
+		{
+			execve(argv[0], argv, NULL);
+		}
+			shsign
+			wait(0);
 	}
 	free(line);
 	exit(EXIT_SUCCESS);
