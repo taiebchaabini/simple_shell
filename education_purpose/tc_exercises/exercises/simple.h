@@ -4,5 +4,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#define shsign printf("$ ");
+#include <sys/types.h>
+#include <sys/wait.h>
+#define shsign printf("#cisfun$ ");
 #endif
