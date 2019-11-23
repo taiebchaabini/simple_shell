@@ -29,12 +29,11 @@ int main(void)
 			if(argv[i] == NULL)
 				exit(-1);
 			argv[i] = token;
-			printf("%s\n", argv[i]);
 			token = strtok(NULL, delim);
 			i++;
 		}
-		argv[i + 1] = NULL; 
-		execve(argv[0], argv, NULL);
+		argv[i] = NULL;
+		execve("/bin/ls", argv, NULL);
 		shsign
 	}
 	free(line);
