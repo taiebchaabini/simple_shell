@@ -8,4 +8,5 @@
 #include <sys/wait.h>
 #define shsign printf("#cisfun$ ");
 #define delim " \n"
+int _strlen(char *s);
 #endif
