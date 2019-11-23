@@ -4,8 +4,8 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 /**
-  *main - a simple fork program
-  *NOTE: if condition for child identification will be used to prevent child from forking another process
+  *main - a simple fork program excute and wait program
+  *NOTE:  it works fine
   */
 int main()
 {
