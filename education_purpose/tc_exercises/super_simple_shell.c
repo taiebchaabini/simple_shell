@@ -8,26 +8,33 @@ int main(void)
 	pid_t children_pid;
 	ssize_t read;
 	size_t len;
-	char *line = NULL;
-	const char *argv[];
+	char *line = NULL, *str = NULL, *token = NULL;
+	char *argv[] = {NULL};
+	int i = 0;
 
 	shsign
 	while ((read = getline(&line, &len, stdin)) != -1)
 	{
-		children_pid = fork();
-		if (children_pid == -1)
-		{
-			perror("ERROR WHILE CREATING CHILD PROCESS");
+		str = malloc(sizeof(char) * strlen(line));
+		if (str == NULL)
 			exit(-1);
-		}
-		else if(children_pid >= 0)
+		*argv = malloc(sizeof(char) * strlen(line));
+		if (argv == NULL)
+			exit(-1);
+		str = strcpy(str, line);
+		token = strtok(str, delim);
+		while (token != NULL)
 		{
-			argv = malloc(sizeof(char) * strlen(line));
-			argv[0] = &line
-			printf("%s", argv[0]);
-			execve(line[0], line, NULL);
-			wait(&state);
+			argv[i] = malloc(sizeof(char) * strlen(token));
+			if(argv[i] == NULL)
+				exit(-1);
+			argv[i] = token;
+			printf("%s\n", argv[i]);
+			token = strtok(NULL, delim);
+			i++;
 		}
+		argv[i + 1] = NULL; 
+		execve(argv[0], argv, NULL);
 		shsign
 	}
 	free(line);
