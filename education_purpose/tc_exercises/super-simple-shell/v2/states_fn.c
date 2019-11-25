@@ -4,7 +4,7 @@
  * @argv0: filename to check
  * @st: buffer
 **/
-void _checkstat(const char *path, struct stat *buf)
+void _which(const char *path, struct stat *buf)
 {
 	struct stat st;
 

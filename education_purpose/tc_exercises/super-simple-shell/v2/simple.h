@@ -13,5 +13,5 @@ struct stat *buf;
 /** string_fn.c **/
 int _strlen(char *s);
 /** states_fn.c **/
-void _checkstat(const char *path, struct stat *buf);
+void _which(const char *path, struct stat *buf);
 #endif

@@ -36,7 +36,7 @@ int main(void)
 				i++;
 			}
 			argv[i] = NULL;
-			_checkstat(argv[0], &st);
+			_which(argv[0], &st);
 			children_pid = fork();
 			if (children_pid == 0)
 				execve(argv[0], argv, NULL);
