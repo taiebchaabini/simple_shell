@@ -1,9 +1,9 @@
 #include "simple.h"
 /**
-* _getenv - function that gets an environment variable.
-* @name: name of the environment variable we are looking for.
-* Return: pointer to env otherwise NULL.
-**/
+ * _getenv - function that gets an environment variable.
+ * @name: name of the environment variable we are looking for.
+ * Return: pointer to env otherwise NULL.
+ **/
 char *_getenv(const char *name)
 {
 	int i = 0;
@@ -34,9 +34,9 @@ char *_getenv(const char *name)
 	return (NULL);
 }
 /**
-* _getenvdir - function that prints each directory contained in the the 
-* environment variable PATH, one directory per line.
-**/
+ * _getenvdir - function that prints each directory contained in the the 
+ * environment variable PATH, one directory per line.
+ **/
 void _getenvdir(void)
 {
 	int i = 0;
@@ -57,43 +57,55 @@ void _getenvdir(void)
 	}
 }
 /**
-* _setenv - function that changes or adds an environment variable
-* @name: environment variable name to change or add
-* @value: environment value to change or add
-* @overwrite: if overwrite is nonzero then the name is changed
-* Return: return 0 on success or -1 on error
-**/
+ * _setenv - function that changes or adds an environment variable
+ * @name: environment variable name to change or add
+ * @value: environment value to change or add
+ * @overwrite: if overwrite is nonzero then the name is changed
+ * Return: return 0 on success or -1 on error
+ **/
 int _setenv(const char *name, const char *value, int overwrite)
 {
 	int i = 0;
-	char *env;
-	char *newval;
+	char *env = NULL, *newval = NULL;
 
-	env = _getenv("Taieb");
+	env = _getenv(name);
 	if (env == NULL)
 	{
 		while (environ[i] != NULL)
-		{
-				printf("%s\n", environ[i]);
-				i++;
-		}
-		newval = malloc(sizeof(char) * ((strlen(name) + strlen(value)) + 1));
-		if (newval == NULL)
-		{
-			printf("_setenv : malloc problem");
-			exit(-1);
-		}
-		newval = str_concat(name, "=");
-		newval = str_concat(newval, value);
+		i++;
+	}
+	
+	newval = malloc(sizeof(char) * ((strlen(name) + strlen(value)) + 1));
+	if (newval == NULL)
+		exit(-1);
+	newval = str_concat(str_concat(name, "="), value);
+	if (env == NULL)
+		environ[i + 1] = NULL;
 		environ[i] = malloc(sizeof(char) * strlen(newval));
 		environ[i] = newval;
-		environ[i + 1] = NULL;
-		// create the env variable 
+		return(0);
+	/*
+	while (environ[i] != NULL)
+	{
+		if (environ[i] == name)
+		{
+			newval = malloc(sizeof(char) * ((strlen(name) + strlen(value)) + 1));
+			if (newval == NULL)
+				exit(-1);
+			newval = str_concat(strconcat(name, "="
+			environ[i] =
+			newval = strdup(value);
+		}
 	}
+	*/
+	return (-1);
 }
 
 int main()
 {
 	_setenv("taieb", "/bin/ls", 0);
+	printf("Print env taieb : %s\n", _getenv("taieb"));
+	_setenv("taieb", "/bin/bash", 0);
+	printf("Print env taieb : %s\n", _getenv("taieb"));
 	exit(1);
 }
