@@ -25,3 +25,12 @@ List of function used for this project of each file.c
 `env_fn.c` | **\_setenv** | Function that changes or adds an environment variable. |
 `env_fn.c` | **\_unsetenv** | Function that deletes the variable name from the environment. |
 
+### Development
+
+Made by Yassine Chayrrou and Taieb Chaâbini for Holberton School Project
+
+### Todos
+- Implement built-ins
+- Handle special characters : ", ', `, \, *, &, #
+- Be able to move the cursor
+
