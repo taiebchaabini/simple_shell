@@ -32,4 +32,3 @@ Made by Yassine Chayrrou and Taieb Chaâbini for Holberton School Project
 - Implement built-ins
 - Handle special characters : ", ', `, \, *, &, #
 - Be able to move the cursor
-
