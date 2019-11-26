@@ -18,4 +18,5 @@ void _which(const char *path, struct stat *buf);
 char *_getenv(const char *name);
 void _getenvdir(void);
 int _setenv(const char *name, const char *value, int overwrite);
+int _unsetenv(const char *name);
 #endif

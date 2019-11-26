@@ -87,3 +87,11 @@ int _setenv(const char *name, const char *value, int overwrite)
 	environ[i] = newval;
 	return(0);
 }
+/**
+* _unsetenv - function that deletes the variable name from the environment
+* @name: name of environment variable we need to delete
+**/
+int _unsetenv(const char *name)
+{
+
+}
