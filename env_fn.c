@@ -34,7 +34,7 @@ char *_getenv(const char *name)
 	return (NULL);
 }
 /**
- * _getenvdir - function that prints each directory contained in the the 
+ * _getenvdir - function that prints each directory contained in the the
  * environment variable PATH, one directory per line.
  **/
 void _getenvdir(void)
@@ -85,13 +85,36 @@ int _setenv(const char *name, const char *value, int overwrite)
 		environ[i + 1] = NULL;
 	environ[i] = malloc(sizeof(char) * ((strlen(name) + strlen(value)) + 2));
 	environ[i] = newval;
-	return(0);
+	return (0);
 }
 /**
 * _unsetenv - function that deletes the variable name from the environment
 * @name: name of environment variable we need to delete
+* Return: 0 if success otherwise -1 if error
 **/
 int _unsetenv(const char *name)
 {
+	int i = 0;
+	char *str = NULL;
 
+	while (environ[i] != NULL)
+	{
+		str = strdup(environ[i]);
+		str = strtok(str, "=");
+		if (strcmp(str, name) == 0)
+			break;
+		i++;
+	}
+	if (environ[i] != NULL)
+	{
+		if (environ[i + 1] == NULL)
+			environ[i] = NULL;
+		while (environ[i] != NULL)
+		{
+			environ[i] = environ[i + 1];
+			i++;
+		}
+		return (0);
+	}
+	return (-1);
 }
