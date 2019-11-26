@@ -1,6 +1,20 @@
+# Simple Shell Project 
+
+### Installation && how to use
+
+```sh
+$ gcc *.c -o shell
+$ Interactive mode : ./shell
+$ Non interactive mode example : echo "ls -la" | ./shell
+```
+
+### Functions prototype and description
+
+List of function used for this project of each file.c
+
 | File | Function | Description | 
 | --- |:---:| --- |
-`string_fn.c` | **\_putchar** | writes the character c to stdout. |
+`string_fn.c` | **\_putchar** | Writes the character c to stdout. |
 `string_fn.c` | **\_puts** | Function that prints a string like a puts function. |
 `string_fn.c` | **\_strlen** | Function that returns the length of a string. |
 `string_fn.c` | **str\_concat** | Function that concatenates two strings. |
