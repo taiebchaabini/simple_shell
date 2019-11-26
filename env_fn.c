@@ -34,29 +34,6 @@ char *_getenv(const char *name)
 	return (NULL);
 }
 /**
- * _getenvdir - function that prints each directory contained in the the
- * environment variable PATH, one directory per line.
- **/
-void _getenvdir(void)
-{
-	int i = 0;
-	char *value = NULL, *token = NULL;
-
-	value = _getenv("PATH");
-	token = malloc(sizeof(char) * strlen(value));
-	if (token == NULL)
-	{
-		perror("getenvdir: malloc problem");
-		exit(-1);
-	}
-	token = strtok(value, ":\n");
-	while (token != NULL)
-	{
-		printf("%s\n", token);
-		token = strtok(NULL, ":\n");
-	}
-}
-/**
  * _setenv - function that changes or adds an environment variable
  * @name: environment variable name to change or add
  * @value: environment value to change or add

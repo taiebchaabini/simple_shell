@@ -12,6 +12,7 @@ int main(void)
 	char *argv[] = {NULL};
 	int i = 0;
 	struct stat st;
+	int count = 0;
 	
 	shsign;
 		while ((read = getline(&line, &len, stdin)) != -1)
@@ -36,10 +37,11 @@ int main(void)
 				i++;
 			}
 			argv[i] = NULL;
-			_which(argv[0], &st);
+			argv[0] = _which(argv[0], &st, count);
 			children_pid = fork();
 			if (children_pid == 0)
 				execve(argv[0], argv, NULL);
+			count++;
 			shsign;
 			wait(0);
 		}
