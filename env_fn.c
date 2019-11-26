@@ -11,7 +11,7 @@ char *_getenv(const char *name)
 
 	if (name == NULL)
 	{
-		printf("_getenv : no argument passed\n");
+		_puts("_getenv : no argument passed", 0);
 		exit(-1);
 	}
 	while (environ[i] != NULL)
@@ -24,7 +24,7 @@ char *_getenv(const char *name)
 		if (token == NULL)
 			return (NULL);
 		token = strtok(str, "=\n");
-		if (strcmp(token, name) == 0)
+		if (_strcmp(token, name) == 0)
 		{
 			token = strtok(NULL, "=\n");
 			return (token);
@@ -78,7 +78,7 @@ int _unsetenv(const char *name)
 	{
 		str = strdup(environ[i]);
 		str = strtok(str, "=");
-		if (strcmp(str, name) == 0)
+		if (_strcmp(str, name) == 0)
 			break;
 		i++;
 	}

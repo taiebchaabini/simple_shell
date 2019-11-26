@@ -14,7 +14,7 @@ int main(void)
 	struct stat st;
 	int count = 0;
 	
-	shsign;
+	_puts("#cisfun$ ", 0);
 	while ((read = getline(&line, &len, stdin)) != -1)
 		{
 			str = malloc(sizeof(char) * _strlen(line));
@@ -42,8 +42,8 @@ int main(void)
 			if (children_pid == 0)
 				execve(argv[0], argv, NULL);
 			count++;
-			shsign;
 			wait(0);
+			_puts("#cisfun$ ", 0);
 		}
 	exit(EXIT_SUCCESS);
 }

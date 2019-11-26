@@ -14,7 +14,7 @@ char *_which(const char *path, struct stat *buf, int count)
 
 	if (path == NULL || buf == NULL)
 	{
-		printf("_which (ERROR) : PATH or BUF is NULL");
+		_puts("_which (ERROR) : PATH or BUF is NULL", 0);
 	}
 	value = _getenv("PATH");
 	token = malloc(sizeof(char) * strlen(value));
