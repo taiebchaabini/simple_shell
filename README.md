@@ -27,7 +27,7 @@ List of function used for this project of each file.c
 
 ### Development
 
-Made by Yassine Chayrrou and Taieb Chaâbini for Holberton School Project
+Made by **Yassine Chayrrou** and **Taieb Chaâbini** for **Holberton School** Project
 
 ### Todos
 - Implement built-ins
