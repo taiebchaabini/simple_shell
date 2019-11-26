@@ -12,7 +12,7 @@ $ Non interactive mode example : echo "ls -la" | ./shell
 
 List of function used for this project of each file.c
 | File | Function | Description | 
-|----------|-------------|------| 
+| ------ | ------ | ----- |
 string\_fn.c | \_putchar | writes the character c to stdout. |
 string\_fn.c | \_puts | Function that prints a string like a puts function. |
 string\_fn.c | \_strlen | Function that returns the length of a string. |
