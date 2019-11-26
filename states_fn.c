@@ -10,6 +10,7 @@ char *_which(const char *path, struct stat *buf, int count)
 	int i = 0;
 	char *value = NULL, *token = NULL;
 	char *state = NULL, *pathtemp = NULL;
+	char *_ = NULL;
 
 	if (path == NULL || buf == NULL)
 	{
@@ -33,6 +34,7 @@ char *_which(const char *path, struct stat *buf, int count)
 			return (token);
 		token = strtok(NULL, ":\n");
 	}
-	printf("%s: %d: %s: not found\n", _getenv("_"), count, path);
+	_ = strtok(_getenv("_"), "./");
+	printf("%s: %d: %s: not found\n", _, count, path);
 	return (NULL);
 }
