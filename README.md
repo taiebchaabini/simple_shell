@@ -31,6 +31,8 @@ Made by **Yassine Chayrrou** and **Taieb Chaâbini** for **Holberton School** Pr
 
 ### Todos
 - Implement built-ins
+- Implement the exit built-in, that exits the shell
+- Implement the env built-in, that prints the current environment
 - Handle special characters : ", ', `, \, *, &, #
 - Be able to move the cursor
 
