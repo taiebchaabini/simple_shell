@@ -12,9 +12,11 @@ extern char **environ;
 /** string_fn.c **/
 int _putchar(char c);
 void _puts(char *str, int bs);
-int _strlen(char *s);
+int _strlen(const char *s);
 char *str_concat(const char *s1, const char *s2);
 int _strcmp(const char *s1, const char *s2);
+/** string_fn2.c **/
+char *_strdup(const char *str);
 /** states_fn.c **/
 char *_which(const char *path, struct stat *buf, int count);
 /** env_fn.c **/

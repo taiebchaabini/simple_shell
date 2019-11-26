@@ -31,7 +31,7 @@ void _puts(char *str, int bs)
  * @s: pointer to char
  * Return: Always return length of @s
  **/
-int _strlen(char *s)
+int _strlen(const char *s)
 {
 	int i;
 
