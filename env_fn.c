@@ -66,46 +66,24 @@ void _getenvdir(void)
 int _setenv(const char *name, const char *value, int overwrite)
 {
 	int i = 0;
-	char *env = NULL, *newval = NULL;
+	char *env = NULL, *newval = NULL, *str = NULL;
 
 	env = _getenv(name);
-	if (env == NULL)
+	while (environ[i] != NULL)
 	{
-		while (environ[i] != NULL)
+		str = strdup(environ[i]);
+		str = strtok(str, "=");
+		if (strcmp(str, name) == 0)
+			break;
 		i++;
 	}
-	
-	newval = malloc(sizeof(char) * ((strlen(name) + strlen(value)) + 1));
+	newval = malloc(sizeof(char) * ((strlen(name) + strlen(value)) + 2));
 	if (newval == NULL)
 		exit(-1);
 	newval = str_concat(str_concat(name, "="), value);
-	if (env == NULL)
+	if (env == NULL || environ[i] == NULL)
 		environ[i + 1] = NULL;
-		environ[i] = malloc(sizeof(char) * strlen(newval));
-		environ[i] = newval;
-		return(0);
-	/*
-	while (environ[i] != NULL)
-	{
-		if (environ[i] == name)
-		{
-			newval = malloc(sizeof(char) * ((strlen(name) + strlen(value)) + 1));
-			if (newval == NULL)
-				exit(-1);
-			newval = str_concat(strconcat(name, "="
-			environ[i] =
-			newval = strdup(value);
-		}
-	}
-	*/
-	return (-1);
-}
-
-int main()
-{
-	_setenv("taieb", "/bin/ls", 0);
-	printf("Print env taieb : %s\n", _getenv("taieb"));
-	_setenv("taieb", "/bin/bash", 0);
-	printf("Print env taieb : %s\n", _getenv("taieb"));
-	exit(1);
+	environ[i] = malloc(sizeof(char) * ((strlen(name) + strlen(value)) + 2));
+	environ[i] = newval;
+	return(0);
 }
