@@ -27,7 +27,7 @@ char *_which(const char *path, struct stat *buf, int count)
 	pathtemp = strdup(path);
 	while (token != NULL)
 	{
-		if (stat(pathtemp, &st) == 0)
+		if (stat(path, &st) == 0)
 			return (pathtemp);
 		token = str_concat(str_concat(token, "/"), path);
 		if (stat(token, &st) == 0)
@@ -36,5 +36,5 @@ char *_which(const char *path, struct stat *buf, int count)
 	}
 	_ = strtok(_getenv("_"), "./");
 	printf("%s: %d: %s: not found\n", _, count, path);
-	return (NULL);
+	return(NULL);
 }

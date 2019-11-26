@@ -15,7 +15,7 @@ int main(void)
 	int count = 0;
 	
 	shsign;
-		while ((read = getline(&line, &len, stdin)) != -1)
+	while ((read = getline(&line, &len, stdin)) != -1)
 		{
 			str = malloc(sizeof(char) * _strlen(line));
 			if (str == NULL)
@@ -45,8 +45,5 @@ int main(void)
 			shsign;
 			wait(0);
 		}
-	free(line);
-	free(str);
-	free(token);
 	exit(EXIT_SUCCESS);
 }
