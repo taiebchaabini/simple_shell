@@ -13,7 +13,7 @@ int main(void)
 	int i = 0;
 	struct stat st;
 	
-	shsign
+	shsign;
 		while ((read = getline(&line, &len, stdin)) != -1)
 		{
 			str = malloc(sizeof(char) * _strlen(line));
@@ -40,7 +40,7 @@ int main(void)
 			children_pid = fork();
 			if (children_pid == 0)
 				execve(argv[0], argv, NULL);
-			shsign
+			shsign;
 			wait(0);
 		}
 	free(line);
