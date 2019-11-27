@@ -6,17 +6,17 @@
  * @env: environment of the program
  * Return: exit(EXIT_SUCCESS) otherwise exit(-1)
  **/
-int main(int ac, char *av[], char **env)
+int main(__attribute__ ((unused)) int ac, char *av[], char **env)
 {
 	pid_t children_pid;
 	char *line = NULL, *str = NULL, *token = NULL, *argv[] = {NULL};
-	ssize_t read = 0, len = 0, i = 0, count = 0, errve = 0, state = 0;
+	ssize_t read = 0, errve = 0;
+	size_t len = 0, count = 0, i = 0;
 	struct stat st;
 
 	_puts("#cisfun$ ", 0);
-	while ((read = getline(&line, &len, stdin)) != -1)
+	for (i = 0 ; (read = getline(&line, &len, stdin)) != -1; )
 	{
-		i = 0;
 		while (line[i] != '\0' && (line[i] == '\n' || line[i] == ' '))
 			i++;
 		if (line[i] != '\0' && line[i] != '\n')

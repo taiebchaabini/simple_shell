@@ -7,11 +7,11 @@
  * @av: name of the shell file
  * Return: Pointer to the found path, otherwise null
  **/
-char *_which(const char *path, struct stat *buf, int count, char *av)
+char *_which(const char *path, struct stat *buf, __attribute__ ((unused))
+		int count, char *av)
 {
 	struct stat st;
-	int i = 0;
-	char *value = NULL, *token = NULL, *state = NULL, *pathtmp = NULL;
+	char *value = NULL, *token = NULL, *pathtmp = NULL;
 
 	if (_strcmp(path, "\n") == 0)
 		return (NULL);
@@ -34,7 +34,7 @@ char *_which(const char *path, struct stat *buf, int count, char *av)
 	pathtmp = _strdup(path);
 	while (token != NULL || value == NULL)
 	{
-		if (stat(path, &st) == 0 || stat(path, &st) == 0 && value == NULL)
+		if ((stat(path, &st) == 0) || (stat(path, &st) == 0 && value == NULL))
 			return (pathtmp);
 		token = str_concat(str_concat(token, "/"), pathtmp);
 		if (stat(token, &st) == 0)

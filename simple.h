@@ -23,6 +23,6 @@ char *_which(const char *path, struct stat *buf, int count, char *av);
 void _error(char *error);
 /** env_fn.c **/
 char *_getenv(const char *name);
-int _setenv(const char *name, const char *value, int overwrite);
+int _setenv(const char *name, const char *value);
 int _unsetenv(const char *name);
 #endif
