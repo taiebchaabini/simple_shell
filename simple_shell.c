@@ -32,6 +32,7 @@ int main(int ac, char *av[], char **env)
 			i++;
 		if (line[i + 1] != '\0' && line[i] != '\n')
 		{
+		printf("TEST IT IS NOT ALLOWED TO ENTER\n GET OUT\n\n");
 		str = malloc(sizeof(char) * _strlen(line));
 		if (str == NULL)
 			exit(-1);
