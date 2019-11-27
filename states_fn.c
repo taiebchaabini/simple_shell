@@ -17,21 +17,28 @@ char *_which(const char *path, struct stat *buf, int count)
 		_puts("_which (ERROR) : PATH or BUF is NULL", 0);
 	}
 	value = _getenv("PATH");
+	if (value != NULL)
+	{
 	token = malloc(sizeof(char) * _strlen(value));
 	if (token == NULL)
 	{
-		perror("getenvdir: malloc problem");
+		perror(token);
 		exit(-1);
 	}
 	token = strtok(value, ":\n");
+	}
 	pathtemp = _strdup(path);
-	while (token != NULL)
+	while (token != NULL || value == NULL)
 	{
-		if (stat(path, &st) == 0)
+		if (stat(path, &st) == 0 || stat(path, &st) == 0 && value == NULL)
 			return (pathtemp);
-		token = str_concat(str_concat(token, "/"), path);
-		if (stat(token, &st) == 0)
-			return (token);
+		else if (stat(token, &st) == 0)
+			{
+				token = str_concat(str_concat(token, "/"), path);
+				return (token);
+			}
+		else 
+			break;
 		token = strtok(NULL, ":\n");
 	}
 	_ = strtok(_getenv("_"), "./");
