@@ -24,6 +24,8 @@ List of function used for this project of each file.c
 `string_fn2.c` | **free_grid** | Function that frees a 2 dimensional grid. |
 `string_fn2.c` | **\_getsubtoken** |  Function that split a token with a specified delimiter |
 `states_fn.c` | **\_which** | Function to check if the program exist in PATH directories. |
+`states_fn.c` | **\_error** | Write a message in the standard error output |
+`states_fn.c` | **\_shsign** | Print the shell sign in interactive mode |
 `env_fn.c` | **\_getenv** | Function that gets an environment variable. |
 `env_fn.c` | **\_setenv** | Function that changes or adds an environment variable. |
 `env_fn.c` | **\_unsetenv** | Function that deletes the variable name from the environment. |
