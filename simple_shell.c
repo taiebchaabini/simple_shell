@@ -27,9 +27,10 @@ int main(int ac, char *av[], char **env)
 	_puts("#cisfun$ ", 0);
 	while ((read = getline(&line, &len, stdin)) != -1)
 	{
-		while (line[i] != '\0' && line[i] == '\n')
+		i = 0;
+		while ((line[i] != '\0' && line[i] == '\n') || (line[i] != '\0' && line[i] == ' '))
 			i++;
-		if (line[i + 1] != '\0')
+		if (line[i + 1] != '\0' && line[i] != '\n')
 		{
 		str = malloc(sizeof(char) * _strlen(line));
 		if (str == NULL)
