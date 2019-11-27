@@ -19,6 +19,7 @@ int _strcmp(const char *s1, const char *s2);
 char *_strdup(const char *str);
 /** states_fn.c **/
 char *_which(const char *path, struct stat *buf, int count);
+void _error(char *error);
 /** env_fn.c **/
 char *_getenv(const char *name);
 int _setenv(const char *name, const char *value, int overwrite);

@@ -13,6 +13,19 @@ int main(void)
 	int i = 0, count = 0;
 	struct stat st;
 
+	
+	/*
+	char *tmp = NULL;
+	tmp = str_concat(":", _getenv("PATH"));
+	_setenv("PATH", tmp, 0);
+	while (environ[i] != NULL)
+	{
+		printf("%s\n", environ[i]);
+		i++;
+	}
+	i = 0;
+	*/
+	
 	_puts("#cisfun$ ", 0);
 	while ((read = getline(&line, &len, stdin)) != -1)
 	{
