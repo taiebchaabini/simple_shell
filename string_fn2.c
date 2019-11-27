@@ -14,7 +14,7 @@ char *_strdup(const char *str)
 		return (NULL);
 	while (str[i] != '\0')
 		i++;
-	p = malloc(i + 1 * sizeof(char));
+	p = malloc((i + 1) * sizeof(char));
 	if (p == NULL)
 		return (NULL);
 	for (b = 0; b < i; b++)
@@ -34,13 +34,11 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	unsigned int i = 0;
 
 	if (nmemb == 0 || size == 0)
-		exit(-1);
-	p = malloc((nmemb + 1) * size);
+		return (NULL);
+	nmemb += 1;
+	p = malloc(nmemb * size);
 	if (p == NULL)
-	{
-		perror(p);
-		exit(-1);
-	}
+		return (NULL);
 	while (i < nmemb * size)
 	{
 		p[i] = 0;
@@ -54,13 +52,41 @@ void *_calloc(unsigned int nmemb, unsigned int size)
  * @grid: the address of the two dimensional grid
  * @height: height of the grid
 **/
-void free_grid(int **grid, int height)
+void free_grid(char **grid)
 {
 	int h = 0;
+	int height = 0;
+
+	for (; grid[height] != NULL; height++)
+		;
 
 	for (; h < height; h++)
 	{
 		free(grid[h]);
 	}
 	free(grid);
+}
+/**
+* _getsubtoken - Function that split a token with a specified delimiter
+* @str: token to split, taken from the getline
+* @delim: delimiter we use in strtok
+* Return: pointer, otherwise NULL if error occurs.
+**/
+char **_getsubtoken(char *str, char *delim)
+{
+	int i = 0;
+	char *token = NULL;
+	char **argv;
+
+	argv = _calloc(_strlen(str), sizeof(char));
+	token = strtok(str, delim);
+	for (i = 0; token != NULL; token = strtok(NULL, delim), i++)
+	{
+		argv[i] = _calloc(_strlen(token), sizeof(char));
+		argv[i] = token;
+	}
+	argv[i] = NULL;
+	if (_strcmp(argv[0], "exit") == 0)
+		return (NULL);
+	return (argv);
 }

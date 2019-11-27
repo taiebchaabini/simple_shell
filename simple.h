@@ -7,7 +7,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#define delim " \n"
 extern char **environ;
 /** string_fn.c **/
 int _putchar(char c);
@@ -18,6 +17,8 @@ int _strcmp(const char *s1, const char *s2);
 /** string_fn2.c **/
 char *_strdup(const char *str);
 void *_calloc(unsigned int nmemb, unsigned int size);
+char **_getsubtoken(char *str, char *delim);
+void free_grid(char **grid);
 /** states_fn.c **/
 char *_which(const char *path, struct stat *buf, int count, char *av);
 void _error(char *error);

@@ -16,13 +16,9 @@ char *_getenv(const char *name)
 	}
 	while (environ[i] != NULL)
 	{
-		str = malloc(sizeof(char) * strlen(environ[i]));
-		if (str == NULL)
-			return (NULL);
+		str = _calloc(_strlen(environ[i]), sizeof(char));
 		str = _strdup(environ[i]);
-		token = malloc(sizeof(char) * strlen(str));
-		if (token == NULL)
-			return (NULL);
+		token = _calloc(_strlen(str), sizeof(char));
 		token = strtok(str, "=\n");
 		if (_strcmp(token, name) == 0)
 		{
@@ -53,13 +49,13 @@ int _setenv(const char *name, const char *value)
 			break;
 		i++;
 	}
-	newval = malloc(sizeof(char) * ((_strlen(name) + _strlen(value)) + 2));
+	newval = malloc(sizeof(char) * ((_strlen(name) + _strlen(value)) + 1));
 	if (newval == NULL)
 		exit(-1);
 	newval = str_concat(str_concat(name, "="), value);
 	if (env == NULL || environ[i] == NULL)
 		environ[i + 1] = NULL;
-	environ[i] = malloc(sizeof(char) * ((_strlen(name) + _strlen(value)) + 2));
+	environ[i] = malloc(sizeof(char) * ((_strlen(name) + _strlen(value)) + 1));
 	environ[i] = newval;
 	return (0);
 }
