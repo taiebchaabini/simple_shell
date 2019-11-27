@@ -54,12 +54,11 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 void free_grid(char **grid)
 {
 	int h = 0;
-	int height = 0;
 
-	for (; grid[height] != NULL; height++)
-		;
+	if (grid == NULL)
+		return;
 
-	for (; h < height; h++)
+	for (; grid[h]; h++)
 	{
 		free(grid[h]);
 	}

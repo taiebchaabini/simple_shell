@@ -34,11 +34,7 @@ int main(__attribute__ ((unused)) int ac, char *av[], char **env)
 			errve = execve(argv[0], argv, env);
 		}
 		if (errve == -1)
-		{
-			free(str);
-			free_grid(argv);
 			exit(-1);
-		}
 		count++;
 		wait(0);
 		_shsign();
