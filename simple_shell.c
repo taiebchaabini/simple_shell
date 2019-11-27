@@ -13,26 +13,14 @@ int main(int ac, char *av[], char **env)
 	int i = 0, count = 0, errve = 0;
 	struct stat st;
 
-	/*
-	char *tmp = NULL;
-	tmp = str_concat(":", _getenv("PATH"));
-	_setenv("PATH", tmp, 0);
-	while (env[i] != NULL)
-	{
-		printf("%s\n", env[i]);
-		i++;
-	}
-	i = 0;
-	 */
 	_puts("#cisfun$ ", 0);
 	while ((read = getline(&line, &len, stdin)) != -1)
 	{
 		i = 0;
-		while ((line[i] != '\0' && line[i] == '\n') || (line[i] != '\0' && line[i] == ' '))
+		while((line[i] != '\0' && line[i] == '\n') || (line[i] != '\0' && line[i] == ' '))
 			i++;
-		if (line[i + 1] != '\0' && line[i] != '\n')
+		if (line[i] != '\0' && line[i] != '\n')
 		{
-		printf("TEST IT IS NOT ALLOWED TO ENTER\n GET OUT\n\n");
 		str = malloc(sizeof(char) * _strlen(line));
 		if (str == NULL)
 			exit(-1);
@@ -68,5 +56,7 @@ int main(int ac, char *av[], char **env)
 		wait(0);
 		_puts("#cisfun$ ", 0);
 	}
+	if (read == -1)
+		_puts("\n", 0);
 	exit(EXIT_SUCCESS);
 }
