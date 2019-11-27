@@ -30,9 +30,7 @@ int main(__attribute__ ((unused)) int ac, char *av[], char **env)
 			argv[0] = "";
 		children_pid = fork();
 		if (children_pid == 0)
-		{
 			errve = execve(argv[0], argv, env);
-		}
 		if (errve == -1)
 			exit(-1);
 		count++;

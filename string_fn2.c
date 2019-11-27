@@ -31,19 +31,12 @@ char *_strdup(const char *str)
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *p;
-	unsigned int i = 0;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
-	nmemb += 1;
 	p = malloc(nmemb * size);
 	if (p == NULL)
-		return (NULL);
-	while (i < nmemb * size)
-	{
-		p[i] = 0;
-		i++;
-	}
+		exit(-1);
 	return (p);
 }
 /**
@@ -76,6 +69,8 @@ char **_getsubtoken(char *str, char *delim)
 	char *token = NULL;
 	char **argv;
 
+	if (str == NULL)
+		return (NULL);
 	argv = _calloc(_strlen(str), sizeof(char));
 	token = strtok(str, delim);
 	for (i = 0; token != NULL; token = strtok(NULL, delim), i++)
@@ -85,6 +80,6 @@ char **_getsubtoken(char *str, char *delim)
 	}
 	argv[i] = NULL;
 	if (_strcmp(argv[0], "exit") == 0)
-		return (NULL);
+		exit(-1);
 	return (argv);
 }
