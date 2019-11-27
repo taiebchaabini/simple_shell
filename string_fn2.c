@@ -35,7 +35,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	if (nmemb == 0 || size == 0)
 		exit(-1);
-	p = malloc(nmemb * size);
+	p = malloc((nmemb + 1) * size);
 	if (p == NULL)
 	{
 		perror(p);

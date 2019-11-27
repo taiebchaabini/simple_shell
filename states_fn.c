@@ -11,8 +11,7 @@ char *_which(const char *path, struct stat *buf, int count, char *av)
 {
 	struct stat st;
 	int i = 0;
-	char *value = NULL, *token = NULL;
-	char *state = NULL, *pathtmp = NULL;
+	char *value = NULL, *token = NULL, *state = NULL, *pathtmp = NULL;
 
 	if (_strcmp(path, "\n") == 0)
 		return (NULL);
@@ -44,7 +43,7 @@ char *_which(const char *path, struct stat *buf, int count, char *av)
 			break;
 		token = strtok(NULL, ":\n");
 	}
-	printf("%s: %d: %s: not found\n", av, count, path);
+	perror(av);
 	return (NULL);
 }
 /**
