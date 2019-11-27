@@ -1,6 +1,6 @@
 #include "simple.h"
 /**
- * main - My super simple shell #v0
+ * main - Simple shell
  * Return: exit(EXIT_SUCCESS) otherwise exit(-1)
 **/
 int main(int ac, char *av[])
@@ -24,7 +24,6 @@ int main(int ac, char *av[])
 	}
 	i = 0;
 	*/
-	
 	_puts("#cisfun$ ", 0);
 	while ((read = getline(&line, &len, stdin)) != -1)
 	{
