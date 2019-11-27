@@ -31,6 +31,8 @@ char *_getenv(const char *name)
 		}
 		i++;
 	}
+	free(str);
+	free(token);
 	return (NULL);
 }
 /**
@@ -40,7 +42,7 @@ char *_getenv(const char *name)
  * @overwrite: if overwrite is nonzero then the name is changed
  * Return: return 0 on success or -1 on error
  **/
-int _setenv(const char *name, const char *value, int overwrite)
+int _setenv(const char *name, const char *value)
 {
 	int i = 0;
 	char *env = NULL, *newval = NULL, *str = NULL;

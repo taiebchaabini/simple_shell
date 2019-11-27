@@ -10,7 +10,7 @@ int main(int ac, char *av[], char **env)
 {
 	pid_t children_pid;
 	char *line = NULL, *str = NULL, *token = NULL, *argv[] = {NULL};
-	ssize_t read = 0, len = 0, i = 0, count = 0, errve = 0, state = 0;
+	size_t read = 0, len = 0, i = 0, count = 0, errve = 0, state = 0;
 	struct stat st;
 
 	_puts("#cisfun$ ", 0);
@@ -23,7 +23,7 @@ int main(int ac, char *av[], char **env)
 		{
 			str = _calloc(_strlen(line), sizeof(char));
 			*argv = _calloc(_strlen(line), sizeof(char));
-			str = strdup(line);
+			str = _strdup(line);
 			token = strtok(str, delim);
 			for (i = 0; token != NULL; token = strtok(NULL, delim), i++)
 			{
