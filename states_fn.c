@@ -1,15 +1,15 @@
 #include "simple.h"
-/**
+/*
  * _which - function to check if the program exist in PATH directories
  * @argv0: filename to check
  * @st: buffer
  **/
-char *_which(const char *path, struct stat *buf, int count)
+char *_which(const char *path, struct stat *buf, int count, char *av)
 {
 	struct stat st;
 	int i = 0;
 	char *value = NULL, *token = NULL;
-	char *state = NULL, *pathtemp = NULL;
+	char *state = NULL, *pathtmp = NULL;
 
 	if (path == NULL || buf == NULL)
 	{
@@ -18,40 +18,34 @@ char *_which(const char *path, struct stat *buf, int count)
 	value = _getenv("PATH");
 	if (value != NULL)
 	{
-	token = malloc(sizeof(char) * _strlen(value));
-	if (token == NULL)
-	{
-		perror(token);
-		exit(-1);
+		token = malloc(sizeof(char) * _strlen(value));
+		if (token == NULL)
+		{
+			_error("Error: Token - malloc in _which function");
+			exit(-1);
+		}
+		token = strtok(value, ":\n");
 	}
-	if(value[0] == ':')
-	{
-		_error("cisfun\n");
-		return (NULL);
-	}
-	token = strtok(value, ":\n");
-	}
-	pathtemp = _strdup(path);
+	pathtmp = _strdup(path);
 	while (token != NULL || value == NULL)
 	{
 		if (stat(path, &st) == 0 || stat(path, &st) == 0 && value == NULL)
-			return (pathtemp);
+			return (pathtmp);
 		//pathtemp = strtok(pathtemp, " \n");
-		token = str_concat(str_concat(token, "/"), path);
+		token = str_concat(str_concat(token, "/"), pathtmp);
 		if (stat(token, &st) == 0)
 			return (token);
 		if(stat(token, &st) != 0 && value == NULL)
 			break;
 		token = strtok(NULL, ":\n");
 	}
-	_getenv("_");
-	printf("%s: %d: %s: not found\n", _getenv("_"), count, path);
+	printf("%s: %d: %s: not found\n", av, count, path);
 	return(NULL);
 }
 /**
-* _error - Write a message in the standard error output
-* @msg: Message that should be displayed
-**/
+ * _error - Write a message in the standard error output
+ * @msg: Message that should be displayed
+ **/
 void _error(char *msg)
 {
 	write(2, msg, _strlen(msg));

@@ -3,7 +3,7 @@
  * main - My super simple shell #v0
  * Return: exit(EXIT_SUCCESS) otherwise exit(-1)
 **/
-int main(void)
+int main(int ac, char *av[])
 {
 	int state = 0;
 	pid_t children_pid;
@@ -13,7 +13,6 @@ int main(void)
 	int i = 0, count = 0;
 	struct stat st;
 
-	
 	/*
 	char *tmp = NULL;
 	tmp = str_concat(":", _getenv("PATH"));
@@ -49,10 +48,10 @@ int main(void)
 			i++;
 		}
 		argv[i] = NULL;
-		argv[0] = _which(argv[0], &st, count);
+		argv[0] = _which(argv[0], &st, count, av[0]);
 		children_pid = fork();
 		if (children_pid == 0)
-			execve(argv[0], argv, NULL);
+		execve(argv[0], argv, NULL);
 		count++;
 		wait(0);
 		_puts("#cisfun$ ", 0);
