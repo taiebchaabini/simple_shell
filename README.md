@@ -21,7 +21,7 @@ List of function used for this project of each file.c
 `string_fn.c` | **\_strcmp** | Function that compares two strings. |
 `string_fn2.c` | **\_strdup** | Function that returns a pointer which contains a copy of the string. |
 `string_fn2.c` | **\_calloc** | Function that allocates memory for an array, using malloc. |
-`string_fn2.c` | **free_grid** | Function that frees a 2 dimensional grid previously created by your alloc_grid function. |
+`string_fn2.c` | **free_grid** | Function that frees a 2 dimensional grid. |
 `string_fn2.c` | **\_getsubtoken** |  Function that split a token with a specified delimiter |
 `states_fn.c` | **\_which** | Function to check if the program exist in PATH directories. |
 `env_fn.c` | **\_getenv** | Function that gets an environment variable. |
