@@ -3,7 +3,7 @@
  * main - Simple shell
  * Return: exit(EXIT_SUCCESS) otherwise exit(-1)
 **/
-int main(int ac, char *av[])
+int main(int ac, char *av[], char **env)
 {
 	int state = 0;
 	pid_t children_pid;
@@ -17,13 +17,13 @@ int main(int ac, char *av[])
 	char *tmp = NULL;
 	tmp = str_concat(":", _getenv("PATH"));
 	_setenv("PATH", tmp, 0);
-	while (environ[i] != NULL)
+	while (env[i] != NULL)
 	{
-		printf("%s\n", environ[i]);
+		printf("%s\n", env[i]);
 		i++;
 	}
 	i = 0;
-	*/
+	 */
 	_puts("#cisfun$ ", 0);
 	while ((read = getline(&line, &len, stdin)) != -1)
 	{
@@ -49,10 +49,10 @@ int main(int ac, char *av[])
 		argv[i] = NULL;
 		if (_strcmp(argv[0], "exit") == 0)
 				exit(0);
-		argv[0] = _which(argv[0], &st, count, av[0]);
+		argv[0] = _which(argv[0], &st, count, av[0], env);
 		children_pid = fork();
 		if (children_pid == 0)
-			errve = execve(argv[0], argv, NULL);
+			errve = execve(argv[0], argv, env);
 		if (errve == -1)
 			exit(0);
 		count++;

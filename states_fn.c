@@ -1,18 +1,21 @@
 #include "simple.h"
-/*
+/**
  * _which - function to check if the program exist in PATH directories
  * @argv0: filename to check
  * @st: buffer
- **/
-char *_which(const char *path, struct stat *buf, int count, char *av)
+**/
+char *_which(const char *path, struct stat *buf, int count, char *av, char **env)
 {
 	struct stat st;
 	int i = 0;
 	char *value = NULL, *token = NULL;
 	char *state = NULL, *pathtmp = NULL;
 
+	if (_strcmp(path, "\n") == 0)
+		 return (NULL);
 	if (path == NULL || buf == NULL)
 	{
+		printf("ERROR : %s\n", path);
 		return (NULL);
 	}
 	value = _getenv("PATH");
@@ -31,7 +34,8 @@ char *_which(const char *path, struct stat *buf, int count, char *av)
 	{
 		if (stat(path, &st) == 0 || stat(path, &st) == 0 && value == NULL)
 			return (pathtmp);
-		//pathtemp = strtok(pathtemp, " \n");
+		
+		//pathtmp = strtok(pathtmp, " \n");
 		token = str_concat(str_concat(token, "/"), pathtmp);
 		if (stat(token, &st) == 0)
 			return (token);
@@ -40,7 +44,7 @@ char *_which(const char *path, struct stat *buf, int count, char *av)
 		token = strtok(NULL, ":\n");
 	}
 	printf("%s: %d: %s: not found\n", av, count, path);
-	return(NULL);
+	return (NULL);
 }
 /**
  * _error - Write a message in the standard error output
