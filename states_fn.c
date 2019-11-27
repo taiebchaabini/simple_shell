@@ -1,10 +1,13 @@
 #include "simple.h"
 /**
- * _which - function to check if the program exist in PATH directories
- * @argv0: filename to check
- * @st: buffer
-**/
-char *_which(const char *path, struct stat *buf, int count, char *av, char **env)
+ * _which - Function to check if the program exist in PATH directories
+ * @path: filename to check
+ * @buf: buffer
+ * @count: number of times command are executed
+ * @av: name of the shell file
+ * Return: Pointer to the found path, otherwise null
+ **/
+char *_which(const char *path, struct stat *buf, int count, char *av)
 {
 	struct stat st;
 	int i = 0;
@@ -12,7 +15,7 @@ char *_which(const char *path, struct stat *buf, int count, char *av, char **env
 	char *state = NULL, *pathtmp = NULL;
 
 	if (_strcmp(path, "\n") == 0)
-		 return (NULL);
+		return (NULL);
 	if (path == NULL || buf == NULL)
 	{
 		printf("ERROR : %s\n", path);
@@ -34,12 +37,10 @@ char *_which(const char *path, struct stat *buf, int count, char *av, char **env
 	{
 		if (stat(path, &st) == 0 || stat(path, &st) == 0 && value == NULL)
 			return (pathtmp);
-		
-		//pathtmp = strtok(pathtmp, " \n");
 		token = str_concat(str_concat(token, "/"), pathtmp);
 		if (stat(token, &st) == 0)
 			return (token);
-		if(stat(token, &st) != 0 && value == NULL)
+		if (stat(token, &st) != 0 && value == NULL)
 			break;
 		token = strtok(NULL, ":\n");
 	}

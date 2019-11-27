@@ -4,7 +4,7 @@
  * memory, which contains a copy of the string given as a parameter.
  * @str: pointer of char
  * Return: return pointer if allocated memory success otherwise NULL
-**/
+ **/
 char *_strdup(const char *str)
 {
 	unsigned int i = 0, b = 0;
@@ -20,5 +20,31 @@ char *_strdup(const char *str)
 	for (b = 0; b < i; b++)
 		p[b] = str[b];
 	p[b + 1] = '\0';
+	return (p);
+}
+/**
+ * _calloc - function that allocates memory for an array, using malloc.
+ * @nmemb: number of elements
+ * @size: size of type
+i * Return: pointer
+ **/
+void *_calloc(unsigned int nmemb, unsigned int size)
+{
+	char *p;
+	unsigned int i = 0;
+
+	if (nmemb == 0 || size == 0)
+		exit(-1);
+	p = malloc(nmemb * size);
+	if (p == NULL)
+	{
+		perror(p);
+		exit(-1);
+	}
+	while (i < nmemb * size)
+	{
+		p[i] = 0;
+		i++;
+	}
 	return (p);
 }

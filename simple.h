@@ -17,8 +17,9 @@ char *str_concat(const char *s1, const char *s2);
 int _strcmp(const char *s1, const char *s2);
 /** string_fn2.c **/
 char *_strdup(const char *str);
+void *_calloc(unsigned int nmemb, unsigned int size);
 /** states_fn.c **/
-char *_which(const char *path, struct stat *buf, int count, char *av, char **env);
+char *_which(const char *path, struct stat *buf, int count, char *av);
 void _error(char *error);
 /** env_fn.c **/
 char *_getenv(const char *name);
