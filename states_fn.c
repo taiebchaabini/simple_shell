@@ -54,3 +54,11 @@ void _error(char *msg)
 {
 	write(2, msg, _strlen(msg));
 }
+/**
+* _shsign - Print the shell sign in interactive mode
+**/
+void _shsign(void)
+{
+	if (system("tty -s") == 0)
+		_puts("($) ", 0);
+}

@@ -21,6 +21,7 @@ void *_calloc(unsigned int nmemb, unsigned int size);
 /** states_fn.c **/
 char *_which(const char *path, struct stat *buf, int count, char *av);
 void _error(char *error);
+void _shsign(void);
 /** env_fn.c **/
 char *_getenv(const char *name);
 int _setenv(const char *name, const char *value);

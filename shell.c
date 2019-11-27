@@ -14,7 +14,7 @@ int main(__attribute__ ((unused)) int ac, char *av[], char **env)
 	size_t len = 0, count = 0, i = 0;
 	struct stat st;
 
-	_puts("#cisfun$ ", 0);
+	_shsign();
 	for (i = 0 ; (read = getline(&line, &len, stdin)) != -1; )
 	{
 		while (line[i] != '\0' && (line[i] == '\n' || line[i] == ' '))
@@ -44,8 +44,8 @@ int main(__attribute__ ((unused)) int ac, char *av[], char **env)
 			exit(-1);
 		count++;
 		wait(0);
-		_puts("#cisfun$ ", 0);
+		_shsign();
 	}
-	_puts("\n", 0);
+	system("tty -s") == 0 ? _puts("\n", 0) : exit(EXIT_SUCCESS);
 	exit(EXIT_SUCCESS);
 }
