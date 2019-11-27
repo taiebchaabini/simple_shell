@@ -10,7 +10,7 @@ int main(int ac, char *av[])
 	ssize_t read;
 	size_t len;
 	char *line = NULL, *str = NULL, *token = NULL, *argv[] = {NULL};
-	int i = 0, count = 0;
+	int i = 0, count = 0, errve = 0;
 	struct stat st;
 
 	/*
@@ -47,10 +47,14 @@ int main(int ac, char *av[])
 			i++;
 		}
 		argv[i] = NULL;
+		if (_strcmp(argv[0], "exit") == 0)
+				exit(0);
 		argv[0] = _which(argv[0], &st, count, av[0]);
 		children_pid = fork();
 		if (children_pid == 0)
-		execve(argv[0], argv, NULL);
+			errve = execve(argv[0], argv, NULL);
+		if (errve == -1)
+			exit(0);
 		count++;
 		wait(0);
 		_puts("#cisfun$ ", 0);
