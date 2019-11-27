@@ -27,6 +27,10 @@ int main(int ac, char *av[], char **env)
 	_puts("#cisfun$ ", 0);
 	while ((read = getline(&line, &len, stdin)) != -1)
 	{
+		while (line[i] != '\0' && line[i] == '\n')
+			i++;
+		if (line[i + 1] != '\0')
+		{
 		str = malloc(sizeof(char) * _strlen(line));
 		if (str == NULL)
 			exit(-1);
@@ -45,11 +49,14 @@ int main(int ac, char *av[], char **env)
 			argv[i] = token;
 			token = strtok(NULL, delim);
 			i++;
-		}
+		}	
 		argv[i] = NULL;
 		if (_strcmp(argv[0], "exit") == 0)
 				exit(0);
 		argv[0] = _which(argv[0], &st, count, av[0], env);
+		}
+		else
+			argv[0] = "";
 		children_pid = fork();
 		if (children_pid == 0)
 			errve = execve(argv[0], argv, env);

@@ -21,7 +21,7 @@ char *_which(const char *path, struct stat *buf, int count, char *av, char **env
 	value = _getenv("PATH");
 	if (value != NULL)
 	{
-		token = malloc(sizeof(char) * _strlen(value));
+		token = malloc(sizeof(char) * _strlen(value) + 1);
 		if (token == NULL)
 		{
 			_error("Error: Token - malloc in _which function");
