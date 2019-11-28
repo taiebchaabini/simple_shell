@@ -14,6 +14,7 @@ int main(__attribute__ ((unused)) int ac, char *av[], char **env)
 	size_t len = 0, count = 0, i = 0;
 	struct stat st;
 
+	signal(SIGINT, signalHandler);
 	_shsign();
 	for (i = 0 ; (read = getline(&line, &len, stdin)) != -1; )
 	{
@@ -28,7 +29,6 @@ int main(__attribute__ ((unused)) int ac, char *av[], char **env)
 		}
 		else
 			argv[0] = "";
-		signal(SIGINT, signalHandler);
 		children_pid = fork();
 		if (children_pid == 0)
 			errve = execve(argv[0], argv, env);

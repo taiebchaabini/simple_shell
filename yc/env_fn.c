@@ -92,6 +92,6 @@ int _unsetenv(const char *name)
 }
 void signalHandler(int sig)
 {
-	
-	kill(children_pid, SIGKILL);
+
+	write(STDOUT_FILENO, "\n($)", 4);
 }
