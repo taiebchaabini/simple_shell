@@ -14,7 +14,7 @@ char *_strdup(const char *str)
 		return (NULL);
 	while (str[i] != '\0')
 		i++;
-	p = malloc((i + 1) * sizeof(char));
+	p = malloc((i + 1) * sizeof(str));
 	if (p == NULL)
 		return (NULL);
 	for (b = 0; b < i; b++)
@@ -71,11 +71,11 @@ char **_getsubtoken(char *str, char *delim)
 
 	if (str == NULL)
 		return (NULL);
-	argv = _calloc(_strlen(str), sizeof(char));
+	argv = _calloc(_strlen(str), sizeof(str));
 	token = strtok(str, delim);
 	for (i = 0; token != NULL; token = strtok(NULL, delim), i++)
 	{
-		argv[i] = _calloc(_strlen(token), sizeof(char));
+		argv[i] = _calloc(_strlen(token), sizeof(token));
 		argv[i] = token;
 	}
 	argv[i] = NULL;

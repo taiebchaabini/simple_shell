@@ -23,6 +23,10 @@ int main(__attribute__ ((unused)) int ac, char *av[], char **env)
 		{
 			str = _calloc(_strlen(line), sizeof(line));
 			str = _strdup(line);
+			if (str == NULL)
+			{
+				break;
+			}
 			argv = _getsubtoken(str, " \n");
 			argv[0] = _which(argv[0], &st, count, av[0]);
 		}
