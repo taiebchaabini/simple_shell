@@ -29,19 +29,14 @@ int main(__attribute__ ((unused)) int ac, char *av[], char **env)
 				exit(0);
 			argv = _getsubtoken(str, " \n");
 			argv[0] = _which(argv[0], &st, count, av[0]);
+			children_pid = fork();
+			if (children_pid == 0)
+				errve = execve(argv[0], argv, env);
+			if (errve == -1)
+				exit(0);
 		}
-		else
-		{
-			argv = malloc(sizeof(argv) * 1);
-			argv[0] = malloc(sizeof(line) * 1);
-			argv[0] = "";
-		}
-		children_pid = fork();
-		if (children_pid == 0)
-			errve = execve(argv[0], argv, env);
-		if (errve == -1)
-			exit(0);
 		count++;
+		if (argv != NULL)
 		wait(0);
 		_shsign();
 	}
