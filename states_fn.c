@@ -1,9 +1,9 @@
 #include "simple.h"
 /**
- * _which - Function to check if the program exist in PATH directories
- * @path: filename to check
+ * _which - checks if the program exist in PATH directories
+ * @path: takes string filename to check
  * @buf: buffer
- * @count: number of times command are executed
+ * @count: takes number of times command are executed
  * @av: name of the shell file
  * Return: Pointer to the found path, otherwise null
  **/
@@ -42,7 +42,7 @@ char *_which(const char *path, struct stat *buf, __attribute__ ((unused))
 	return (NULL);
 }
 /**
- * _error - Write a message in the standard error output
+ * _error - Writes a message in the standard error output
  * @msg: Message that should be displayed
  **/
 void _error(char *msg)
@@ -50,7 +50,7 @@ void _error(char *msg)
 	write(2, msg, _strlen(msg));
 }
 /**
-* _shsign - Print the shell sign in interactive mode
+* _shsign - Prints the shell sign in interactive mode
 **/
 void _shsign(void)
 {
