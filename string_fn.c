@@ -51,19 +51,19 @@ int _strlen(const char *s)
 char *str_concat(const char *s1, const char *s2)
 {
 	unsigned int i = 0, b = 0, c = 0, d = 0;
-	char *p;
+	char *p = NULL;
 
 	if (s1 != NULL)
 	{
-		for (i = 0; s1[i] != '\0'; i++)
-			;
+		while (s1 && s1[i] != '\0')
+			i++;
 	}
 	if (s2 != NULL)
 	{
-		for (b = 0; s2[b] != '\0'; b++)
-			;
+		while (s2 && s2[b] != '\0')
+			b++;
 	}
-	p = malloc((i + b + 2) * sizeof(s1));
+	p = malloc((i + b + 1) * sizeof(s1));
 	if (p == NULL)
 		return (NULL);
 	for (c = 0; c < i; c++)

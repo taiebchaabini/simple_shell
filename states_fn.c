@@ -10,7 +10,7 @@
 char *_which(const char *path, struct stat *buf, __attribute__ ((unused))
 		int count, char *av)
 {
-	struct stat st;
+	struct stat st = {0};
 	char *value = NULL, *token = NULL, *pathtmp = NULL;
 
 	if (_strcmp(path, "\n") == 0)
@@ -30,7 +30,8 @@ char *_which(const char *path, struct stat *buf, __attribute__ ((unused))
 	{
 		if ((stat(path, &st) == 0) || (stat(path, &st) == 0 && value == NULL))
 			return (pathtmp);
-		token = str_concat(str_concat(token, "/"), pathtmp);
+		token = str_concat(token, "/");
+		token = str_concat(token, pathtmp);
 		if (stat(token, &st) == 0)
 			return (token);
 		if (stat(token, &st) != 0 && value == NULL)

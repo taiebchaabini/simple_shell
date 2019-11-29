@@ -8,16 +8,17 @@
  **/
 int main(__attribute__ ((unused)) int ac, char *av[], char **env)
 {
-	pid_t children_pid;
+	pid_t children_pid = 0;
 	char *line = NULL, *str = NULL, **argv = NULL;
 	ssize_t read = 0, errve = 0;
 	size_t len = 0, count = 0, i = 0;
-	struct stat st;
+	struct stat st = {0};
 
 	signal(SIGINT, signalHandler);
 	_shsign();
 	for (i = 0 ; (read = getline(&line, &len, stdin)) != -1; )
 	{
+		i = 0;
 		while (line[i] != '\0' && (line[i] == '\n' || line[i] == ' '))
 			i++;
 		if (line[i] != '\0' && line[i] != '\n')
@@ -30,7 +31,11 @@ int main(__attribute__ ((unused)) int ac, char *av[], char **env)
 			argv[0] = _which(argv[0], &st, count, av[0]);
 		}
 		else
+		{
+			argv = malloc(sizeof(argv) * 1);
+			argv[0] = malloc(sizeof(line) * 1);
 			argv[0] = "";
+		}
 		children_pid = fork();
 		if (children_pid == 0)
 			errve = execve(argv[0], argv, env);

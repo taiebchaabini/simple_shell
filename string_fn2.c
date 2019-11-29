@@ -13,9 +13,8 @@ char *_strdup(const char *str)
 	if (str == NULL)
 		return (NULL);
 	i = _strlen(str);
-	if (i == 0)
-		return (NULL);
-	i += 1;
+	if (i != 0)
+		i += 1;
 	p = malloc(i * sizeof(str));
 	if (p == NULL)
 		return (NULL);
@@ -32,7 +31,7 @@ char *_strdup(const char *str)
  **/
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *p;
+	char *p = NULL;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
@@ -69,7 +68,7 @@ char **_getsubtoken(char *str, char *delim)
 {
 	int i = 0;
 	char *token = NULL;
-	char **argv;
+	char **argv = NULL;
 	int len = 0;
 
 	if (str == NULL)
