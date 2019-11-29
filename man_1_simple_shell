@@ -1,0 +1,30 @@
+.TH man 3 "27 November 2019" "0.2" "shell project man page"
+.SH NAME
+.B Shell
+- command interpreter for Holberton Project (shell)
+.SH SYNOPSIS
+hsh
+.br
+.br
+.B hsh - [\fIO\fR \fIcommand\IfR \fI*argument\fR, \fI...\fR]
+.SH DESCRIPTION
+hsh is a standard command interpreter for holberton project. the current simple shell version is capable of executing most of the standard commands known to users.
+.SH OVERVIEW
+The Simple_shell HSH got some specific:
+.TP
+.BR Ctrl + d
+exits the shell at once
+.TP
+.B env
+prints a list of environment variables
+.TP
+.B exit
+exit current process or prompt of hsh.
+.SH RETURN VALUE
+Returns -1 in case of failure and 1 in case of success, an error message printed to stderror in case of error, in case of success output displayed to standard output.
+.SH SEE ALSO
+sh manual for comparison
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Taieb Chaabini, Yassine Chayrrou.
