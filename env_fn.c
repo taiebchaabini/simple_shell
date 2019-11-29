@@ -90,6 +90,10 @@ int _unsetenv(const char *name)
 	}
 	return (-1);
 }
+/**
+  * signalHandler - Handling control + c
+  * @sig: take an integer as param
+**/
 void signalHandler(int sig)
 {
 
