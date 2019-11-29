@@ -1,6 +1,12 @@
 # Simple Shell Project 
 
 This is a shell program, a program that takes commands of user, execute them and output the result to user.
+
+### Description
+
+The shell is the command interpretor in an operating system such as Unix or GNU/Linux, it is a program that executes other programs. It provides a computer user an interface to the Unix/GNU Linux system so that the user can run different commands or utilities/tools with some input data.
+When the shell has finished executing a program, it sends an output to the user on the screen, which is the standard output device. For this reason, it is referred to as the “command interpretor”.
+
 ### Installation && how to use
 
 ```sh
