@@ -33,7 +33,7 @@ int main(__attribute__ ((unused)) int ac, char *av[], char **env)
 		if (children_pid == 0)
 			errve = execve(argv[0], argv, env);
 		if (errve == -1)
-			exit(-1);
+			exit(0);
 		count++;
 		wait(0);
 		_shsign();

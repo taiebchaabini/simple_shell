@@ -16,19 +16,13 @@ char *_which(const char *path, struct stat *buf, __attribute__ ((unused))
 	if (_strcmp(path, "\n") == 0)
 		return (NULL);
 	if (path == NULL || buf == NULL)
-	{
-		printf("ERROR : %s\n", path);
 		return (NULL);
-	}
 	value = _getenv("PATH");
 	if (value != NULL)
 	{
-		token = malloc(sizeof(char) * _strlen(value) + 1);
+		token = _calloc(_strlen(value), sizeof(value));
 		if (token == NULL)
-		{
-			_error("Error: Token - malloc in _which function");
-			exit(-1);
-		}
+			return (NULL);
 		token = strtok(value, ":\n");
 	}
 	pathtmp = _strdup(path);
