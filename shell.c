@@ -1,10 +1,10 @@
 #include "simple.h"
 /**
  * main - Simple shell
- * @ac: number of argument passed to function
- * @av: arguments passed to the program
- * @env: environment of the program
- * Return: exit(EXIT_SUCCESS) otherwise exit(-1)
+ * @ac: takes number of argument passed to function
+ * @av: takes arguments passed to the program
+ * @env: takes environment of the program
+ * Return: exit(EXIT_SUCCESS) else exit(-1)
  **/
 int main(__attribute__ ((unused)) int ac, char *av[], char **env)
 {
