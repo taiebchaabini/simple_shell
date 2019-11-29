@@ -94,7 +94,7 @@ int _unsetenv(const char *name)
   * signalHandler - Handling control + c
   * @sig: take an integer as param
 **/
-void signalHandler(int sig)
+void signalHandler(__attribute__ ((unused)) int sig)
 {
 
 	write(STDOUT_FILENO, "\n($)", 4);
