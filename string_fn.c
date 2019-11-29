@@ -63,7 +63,7 @@ char *str_concat(const char *s1, const char *s2)
 		for (b = 0; s2[b] != '\0'; b++)
 			;
 	}
-	p = malloc((i + b + 1) * sizeof(char));
+	p = malloc((i + b + 2) * sizeof(s1));
 	if (p == NULL)
 		return (NULL);
 	for (c = 0; c < i; c++)
