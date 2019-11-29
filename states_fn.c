@@ -53,6 +53,6 @@ void _error(char *msg)
 **/
 void _shsign(void)
 {
-	if (system("tty -s") == 0)
+	if (isatty(STDIN_FILENO))
 		_puts("($) ", 0);
 }

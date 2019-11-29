@@ -34,12 +34,11 @@ void _puts(char *str, int bs)
  **/
 int _strlen(const char *s)
 {
-	int i;
+	int i = 0;
 
-	i = 0;
 	if (s == NULL)
 		return (0);
-	while (s[i] != '\0')
+	while (s && s[i] != '\0')
 		i++;
 	return (i);
 }

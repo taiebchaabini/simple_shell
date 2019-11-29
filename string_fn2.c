@@ -8,7 +8,7 @@
 char *_strdup(const char *str)
 {
 	unsigned int i = 0, b = 0;
-	char *p;
+	char *p = NULL;
 
 	if (str == NULL)
 		return (NULL);
@@ -68,10 +68,16 @@ char **_getsubtoken(char *str, char *delim)
 	int i = 0;
 	char *token = NULL;
 	char **argv;
+	int len = 0;
 
 	if (str == NULL)
 		return (NULL);
-	argv = _calloc(_strlen(str), sizeof(str));
+	len = _strlen(str);
+	if (len == 0)
+		return (NULL);
+	argv = _calloc(len, sizeof(str));
+	if (argv == NULL)
+		return (NULL);
 	token = strtok(str, delim);
 	for (i = 0; token != NULL; token = strtok(NULL, delim), i++)
 	{

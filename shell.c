@@ -24,6 +24,8 @@ int main(__attribute__ ((unused)) int ac, char *av[], char **env)
 		{
 			str = _calloc(_strlen(line), sizeof(line));
 			str = _strdup(line);
+			if (str == NULL)
+				exit(0);
 			argv = _getsubtoken(str, " \n");
 			argv[0] = _which(argv[0], &st, count, av[0]);
 		}
@@ -38,6 +40,6 @@ int main(__attribute__ ((unused)) int ac, char *av[], char **env)
 		wait(0);
 		_shsign();
 	}
-	system("tty -s") == 0 ? _puts("\n", 0) : exit(EXIT_SUCCESS);
-	exit(EXIT_SUCCESS);
+	isatty(STDIN_FILENO) ? _puts("\n", 0) : exit(EXIT_SUCCESS);
+	return (0);
 }
