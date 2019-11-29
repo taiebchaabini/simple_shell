@@ -1,9 +1,9 @@
 #include "simple.h"
 /**
  * _strdup -  function that returns a pointer to a newly allocated space in
- * memory, which contains a copy of the string given as a parameter.
- * @str: pointer of char
- * Return: return pointer if allocated memory success otherwise NULL
+ * memory which contains a duplicate of the string given as a parameter.
+ * @str: pointer to char
+ * Return: return pointer if memory allocation for succeed otherwise NULL
  **/
 char *_strdup(const char *str)
 {
@@ -24,10 +24,10 @@ char *_strdup(const char *str)
 	return (p);
 }
 /**
- * _calloc - function that allocates memory for an array, using malloc.
+ * _calloc - function that allocates memory for an array with malloc
  * @nmemb: number of elements
  * @size: size of type
- i * Return: pointer
+ * Return: pointer
  **/
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
@@ -42,8 +42,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 }
 /**
  * free_grid - function that frees a 2 dimensional grid previously created by
- * your alloc_grid function.
- * @grid: the address of the two dimensional grid
+ * the alloc_grid function.
+ * @grid: address of the two dimensional grid
 **/
 void free_grid(char **grid)
 {
@@ -59,7 +59,7 @@ void free_grid(char **grid)
 	free(grid);
 }
 /**
-* _getsubtoken - Function that split a token with a specified delimiter
+* _getsubtoken - Function that splits a token with a specified delimiter
 * @str: token to split, taken from the getline
 * @delim: delimiter we use in strtok
 * Return: pointer, otherwise NULL if error occurs.

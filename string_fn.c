@@ -10,8 +10,8 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 /**
- * _puts - Function that prints a string like a puts function
- * @str: pointer to char
+ * _puts - prints a string like a puts function
+ * @str: a pointer to char
  * @bs : if bs 1 end string with \n otherwise not
  **/
 void _puts(char *str, int bs)
@@ -28,7 +28,7 @@ void _puts(char *str, int bs)
 		_putchar('\n');
 }
 /**
- * _strlen - Function that returns the length of a string
+ * _strlen - returns the length of a string
  * @s: pointer to char
  * Return: Always return length of @s
  **/
@@ -43,7 +43,7 @@ int _strlen(const char *s)
 	return (i);
 }
 /**
- * str_concat - function that concatenates two strings.
+ * str_concat - function that concatenates two strings
  * @s1: pointer of char
  * @s2: pointer of char
  * Return: two strings concatenated
@@ -74,7 +74,7 @@ char *str_concat(const char *s1, const char *s2)
 	return (p);
 }
 /**
- * _strcmp - Function that compares two strings
+ * _strcmp - Function that compares two strings.
  * @s1: pointer to char
  * @s2: pointer to char
  * Return: It return the dest value
