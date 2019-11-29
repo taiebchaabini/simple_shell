@@ -60,10 +60,10 @@ int _setenv(const char *name, const char *value)
 	return (0);
 }
 /**
- * _unsetenv - function that deletes the variable name from the environment
- * @name: name of environment variable we need to delete
- * Return: 0 if success otherwise -1 if error
- **/
+* _unsetenv - function that deletes the variable name from the environment
+* @name: name of environment variable we need to delete
+* Return: 0 if success otherwise -1 if error
+**/
 int _unsetenv(const char *name)
 {
 	int i = 0;
@@ -89,9 +89,4 @@ int _unsetenv(const char *name)
 		return (0);
 	}
 	return (-1);
-}
-void signalHandler(int sig)
-{
-
-	write(STDOUT_FILENO, "\n($)", 4);
 }

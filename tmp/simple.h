@@ -27,6 +27,4 @@ void _shsign(void);
 char *_getenv(const char *name);
 int _setenv(const char *name, const char *value);
 int _unsetenv(const char *name);
-/** signal handler **/
-void signalHandler(int i);
 #endif

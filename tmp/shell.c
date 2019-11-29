@@ -14,7 +14,6 @@ int main(__attribute__ ((unused)) int ac, char *av[], char **env)
 	size_t len = 0, count = 0, i = 0;
 	struct stat st;
 
-	signal(SIGINT, signalHandler);
 	_shsign();
 	for (i = 0 ; (read = getline(&line, &len, stdin)) != -1; )
 	{
