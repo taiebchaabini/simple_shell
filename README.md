@@ -1,6 +1,6 @@
 # Simple Shell Project 
 
-This is a shell program, a program that takes commands of user, execute them and output the result to user.
+This is a simple shell program, a program that takes commands of user, execute them and output the result to user.
 
 ### Description
 
